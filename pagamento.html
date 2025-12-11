@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Bauducco – Pagamento</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .timer {
+            font-size: 2.2rem;
+            font-weight: bold;
+            color: #cc0000;
+            margin-top: 15px;
+        }
+
+        .qr-code {
+            width: 250px;
+            height: 250px;
+            margin: 20px auto;
+            display: block;
+            border: 4px solid #cc0000;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="topbar">
+        Última etapa! Faça o pagamento da taxa.
+    </div>
+
+<section class="section">
+    <div class="container" style="text-align:center;">
+
+        <h1>Pagamento</h1>
+
+        <p>Escaneie o QR Code para realizar o pagamento da taxa de envio.</p>
+
+        <!-- QR CODE -->
+        <img id="qrcodebauducco" src="qrcodebauducco.jpg" alt="QR Code" class="qr-code">
+
+        <!-- CRONÔMETRO -->
+        <h2 id="timer" style="margin-top:20px; color:#b30000; font-weight:bold;">
+            Tempo restante: 02:00
+        </h2>
+
+        <p>Após efetuar o pagamento, clique no botão abaixo:</p>
+
+        <button class="btn" onclick="concluirPagamento()">Pagamento Realizado!</button>
+
+
+    </div>
+</section>
+
+
+<script>
+    let seconds = 120; // 2 minutos
+    let pagamentoConfirmado = false;
+
+    const timerEl = document.getElementById("timer");
+
+    const countdown = setInterval(() => {
+
+        // Se o pagamento foi confirmado, para tudo
+        if (pagamentoConfirmado) {
+            clearInterval(countdown);
+            return;
+        }
+
+        let min = Math.floor(seconds / 60);
+        let sec = seconds % 60;
+
+        timerEl.innerText =
+            `Tempo restante: ${min.toString().padStart(2, '0')}:${sec.toString().padStart(2, '0')}`;
+
+        if (seconds <= 0) {
+            clearInterval(countdown);
+
+            // 🔥 REDIRECIONA PARA WHATSAPP
+            window.location.href =
+                "https://wa.me/5511966653830?text=Olá,%20preciso%20de%20ajuda%20com%20o%20pagamento%20do%20envio.";
+        }
+
+        seconds--;
+    }, 1000);
+
+    // 🔥 SE O USUÁRIO CLICOU NO BOTÃO
+    function concluirPagamento() {
+        pagamentoConfirmado = true; // impede o redirecionamento do cronômetro
+        window.location.href = "obrigado.html";
+    }
+</script>
+
+</body>
+</html>

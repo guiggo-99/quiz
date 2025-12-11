@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Bauducco – Dados</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="topbar">
+        Preencha seus dados para finalizar o envio.
+        <b><p>É cobrada apenas uma taxa simbólica de R$ 29,99 para o transporte.</p></b>
+    </div>
+
+    <section class="section">
+        <div class="container">
+            <h1>Só mais um passo!<p>Informe seus dados 🎁</p></h1>
+            <h3>Garanta que todas as informações estejam corretas para que o envio seja realizado com sucesso.</h3>
+
+            <form id="formBauducco">
+
+                <input type="text" name="nome" placeholder="Nome completo" required>
+                <input type="email" name="email" placeholder="E-mail" required>
+                <input type="tel" name="telefone" placeholder="Telefone: DDD + Número. Ex: 11987654321" required>
+
+                <input type="text" name="rua" placeholder="Logradouro" required>
+
+                <div style="display:flex; gap:10px;">
+                    <input type="text" name="numero" placeholder="Número" required>
+                    <input type="text" name="bairro" placeholder="Bairro" required>
+                </div>
+
+                <input type="text" name="cidade" placeholder="Cidade" required>
+
+                <div style="display:flex; gap:10px;">
+                    <input type="text" name="estado" placeholder="Estado" required>
+                    <input type="text" name="cep" placeholder="CEP" required>
+                </div>
+
+                <button class="btn" type="submit">Continuar para Pagamento</button>
+            </form>
+
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
